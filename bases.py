@@ -15,10 +15,21 @@ def decode(digits, base):
     digits: str -- string representation of number (in given base)
     base: int -- base of given number
     return: int -- integer representation of number (in base 10)"""
+    # https://www.geeksforgeeks.org/binary-decimal-vice-versa-python/
+
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
-    # ...
+    # Decode digits from binary (base 2)
+    decimal, i = 0, 0 
+
+    while i < len(digits): 
+        decimal += list.index(digits[len(digits) - 1 - i]) * pow(base, i)
+        i += 1 
+
+    return decimal
+    print(decimal)
+
+
     # TODO: Decode digits from hexadecimal (base 16)
     # ...
     # TODO: Decode digits from any base (2 up to 36)
