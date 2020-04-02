@@ -20,18 +20,20 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Decode digits from binary (base 2)
-    decimal, i = 0, 0 
+    decimal, exponent = 0, 0 
 
-    while i < len(digits): 
-        decimal += list.index(digits[len(digits) - 1 - i]) * pow(base, i)
-        i += 1 
-
+    for digit in digits:
+        decimal += digit * pow(base, exponent)
+        exponent += 1
     return decimal
     print(decimal)
 
-
     # TODO: Decode digits from hexadecimal (base 16)
-    # ...
+    for index, decimal in enumerate(string.hexdigits): 
+        hex = string.hexdigits
+        value 
+
+
     # TODO: Decode digits from any base (2 up to 36)
     # ...
 
