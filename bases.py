@@ -19,9 +19,6 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
 
-    # TODO: Decode digits from hexadecimal (base 16)
-    # TODO: Decode digits from any base (2 up to 36)
-
     digits = digits.lower() 
     characters = string.digits + string.ascii_lowercase
     decimal, i = 0,0
@@ -48,11 +45,27 @@ def encode(number, base):
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
     # TODO: Encode number in binary (base 2)
-    # ...
     # TODO: Encode number in hexadecimal (base 16)
-    # ...
     # TODO: Encode number in any base (2 up to 36)
-    # ...
+
+    """
+    Inverse decode 
+    Convert int to base/radix 2-36 string
+    Special numerals used to convert to any base or radix 
+    """
+
+    characters = string.digits + string.ascii_letters 
+
+    # recognize values, take account negatives
+    if number < 0:
+        sign = -1
+    elif number == 0:
+        return characters[0]
+    else:
+        sign = 1
+
+    number *= sign
+    digits = []
 
 
 def convert(digits, base1, base2):
