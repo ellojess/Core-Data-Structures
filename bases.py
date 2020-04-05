@@ -9,7 +9,6 @@ import string
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
-
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
     digits: str -- string representation of number (in given base)
@@ -19,24 +18,25 @@ def decode(digits, base):
 
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # Decode digits from binary (base 2)
-    decimal, exponent = 0, 0 
-
-    for digit in digits:
-        decimal += digit * pow(base, exponent)
-        exponent += 1
-    return decimal
-    print(decimal)
 
     # TODO: Decode digits from hexadecimal (base 16)
-    for index, decimal in enumerate(string.hexdigits): 
-        hex = string.hexdigits
-        value 
-
-
     # TODO: Decode digits from any base (2 up to 36)
-    # ...
 
+    digits = digits.lower() 
+    characters = string.digits + string.ascii_lowercase
+    decimal, i = 0,0
+  
+    # Decimal equivalent is str[len-1]*1 + str[len-1]*base + str[len-1]*(base^2) + ...  
+    # loop through items in string from right to left 
+    for digit in reversed(digits): 
+        # Check if a digit in input number is less than number's base 
+        if characters.find(digit) >= base:
+            print("Invalid number")
+            return -1
+        # If input is valid, multiply item by the power of the base, add total values
+        decimal += characters.find(digit) * pow(base, i)
+        i += 1 
+    return decimal
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
