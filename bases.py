@@ -44,9 +44,6 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
-    # TODO: Encode number in binary (base 2)
-    # TODO: Encode number in hexadecimal (base 16)
-    # TODO: Encode number in any base (2 up to 36)
 
     """
     Inverse decode 
@@ -67,9 +64,9 @@ def encode(number, base):
     digits = []
 
     """
-    - input number is given base  
-    - repeatedly divide by base and taking remainder 
-    - reverse results and join
+    input number is given base  
+    repeatedly divide by base and taking remainder 
+    reverse results and join
     """
     while number:
         digits.append(characters[int(number % base)])
@@ -88,14 +85,7 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+    # Convert digits from any base to any base (2 up to 36)
     return encode(decode(digits, base1), base2)
 
 def main():
