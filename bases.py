@@ -53,6 +53,7 @@ def encode(number, base):
 
     characters = string.digits + string.ascii_letters 
 
+    # determine sign of number (negative, 0, positive)
     if number < 0:
         sign = -1
     elif number == 0:
@@ -65,7 +66,7 @@ def encode(number, base):
 
     """
     input number is given base  
-    repeatedly divide by base and taking remainder 
+    repeatedly divide by base and taking remainder until 0
     reverse results and join
     """
     while number:
@@ -74,6 +75,7 @@ def encode(number, base):
     if sign < 0:
         digits.append('-')
     digits.reverse()
+    # convert to string, join array elements 
     return ''.join(digits)
 
 def convert(digits, base1, base2):
