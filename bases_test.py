@@ -3,7 +3,6 @@
 from bases import decode, encode, convert
 import unittest
 
-
 class BasesDecodeTest(unittest.TestCase):
 
     def test_decode_binary(self):
