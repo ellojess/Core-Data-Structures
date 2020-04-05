@@ -18,9 +18,16 @@ def linear_search_iterative(array, item):
 
 def linear_search_recursive(array, item, index=0):
     # TODO: implement linear search recursively here
-    pass
+    # pass
     # once implemented, change linear_search to call linear_search_recursive
     # to verify that your recursive implementation passes all tests
+
+    if array[0] == item:
+        return index
+    elif len(array) > 1:
+        return linear_search_recursive(array[1:], item, index+1)
+    else:
+        return None
 
 
 def binary_search(array, item):
