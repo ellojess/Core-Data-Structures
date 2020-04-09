@@ -22,7 +22,6 @@ def linear_search_recursive(array, item, index=0):
     # once implemented, change linear_search to call linear_search_recursive
     # to verify that your recursive implementation passes all tests
 
-
     if array[0] == item:
         return index
     elif len(array) > 1:
@@ -53,7 +52,7 @@ def binary_search_iterative(array, item):
     """
     first = 0 
     last = len(array) - 1 
-    mid = len(array)//2 
+    mid = len(array) // 2 
     found = False 
 
     while(len(array) > 1 and array[mid] != item and not found):
@@ -61,9 +60,9 @@ def binary_search_iterative(array, item):
             array = array[:mid]
             last = last - mid - 1
         else: 
-            array = array[mid+1:]
+            array = array[mid + 1:]
             first = first + mid + 1 
-        mid = len(array)//2 
+        mid = len(array) // 2 
 
     if array[mid] == item:
         found = True
@@ -74,6 +73,18 @@ def binary_search_iterative(array, item):
 
 def binary_search_recursive(array, item, left=None, right=None):
     # TODO: implement binary search recursively here
-    pass
+    # pass
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
+    if left is None and right is None:
+        right = len(array) - 1
+        left = 0
+    mid = len(array) // 2
+    if left > right:
+        return None
+    elif array[mid] == item:
+        return (left + right) // 2
+    elif array[mid] > item:
+        return binary_search_recursive(array[:mid], item, left, right - mid - 1)
+    else:
+        return binary_search_recursive(array[mid + 1:], item, left + mid + 1, right)
