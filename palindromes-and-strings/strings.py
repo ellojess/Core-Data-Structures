@@ -7,6 +7,9 @@ def contains(text, pattern):
     # TODO: Implement contains here (iteratively and/or recursively)
 
 
+
+
+
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
     or None if not found."""
@@ -14,6 +17,15 @@ def find_index(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
 
+    if pattern == ''
+        return 0
+    
+    if len(text) < len(pattern):
+        return None 
+    elif text[:len(pattern)] == pattern
+        return 0 
+    else:
+        find_index(text[1:], pattern)
 
 def find_all_indexes(text, pattern):
     """Return a list of starting indexes of all occurrences of pattern in text,
