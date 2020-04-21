@@ -24,6 +24,10 @@ def is_palindrome_iterative(text):
     # to verify that your iterative implementation passes all tests
     left_index = 0 
     right_index = len(text) - 1
+    text = text.lower()
+
+    if text == "":
+        return True
 
     while left_index < right_index:
         if text[left_index] != text[right_index]: # not a palindrome 
@@ -40,13 +44,21 @@ def is_palindrome_recursive(text, left=None, right=None):
     # to verify that your iterative implementation passes all tests
 
     # base cases 
+    if text == "":
+        return True 
+
     if left == right or left > right:
         return True
+
+    if left is None:
+        left = 0
+        right = len(text) - 1
+
     if text[left] != text[right]: # mismatch 
         return False 
-
-    # recursive case 
-    return is_palindrome_recursive(text, left+1, right-1)
+    else: 
+        # recursive case 
+        return is_palindrome_recursive(text, left+1, right-1)
 
 def main():
     import sys
