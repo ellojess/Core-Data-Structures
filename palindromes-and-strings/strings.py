@@ -5,6 +5,7 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
+
     if find_index(text, pattern) is not None:
         return True
     else: 
@@ -18,7 +19,14 @@ def find_index(text, pattern, start = 0):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
+
+    """
+    - loop through text to find pattern 
+    - compare pattern value and text value 
+    - return index or none 
+    """
     
+    # check if pattern is empty 
     if pattern == '':
         return 0 
     if pattern == text:
@@ -26,9 +34,10 @@ def find_index(text, pattern, start = 0):
     if len(pattern) > len(text):
         return None 
 
+    # loop from start to end of 
     for index in range(start, len(text) - len(pattern) + 1):
-        if text[index] == pattern[0]:
-            if text[index: index + len(pattern)] == pattern:
+        if text[index] == pattern[0]: # text and pattern match at first value 
+            if text[index: index + len(pattern)] == pattern: # text and pattern match at subsequent value
                 return index
     return None
     
@@ -40,13 +49,30 @@ def find_all_indexes(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
 
-    """
-    - loop through text, check if current pattern and text letter match 
-    - 
-    - 
-    """
+    indexes = [] 
+    i = find_index(text, pattern)
 
-    # pass
+    # base cases, check if pattern is empty 
+    if pattern == '':
+        return indexes
+
+    if pattern == text:
+        return [0]
+
+    if i is not None:
+        indexes.append(i)
+    else:
+        return indexes
+
+    for index in indexes:
+        i = find_index(text, pattern, index + 1)
+        if i is not None and i < len(text):
+            indexes.append(i)
+        else:
+            break   
+    return indexes
+
+    
 
 
 
