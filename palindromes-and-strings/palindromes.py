@@ -31,7 +31,6 @@ def is_palindrome_iterative(text):
     # if text == "":
     #     return True
     
-
     # while left_index < right_index:
     #     if text[left_index] != text[right_index]: # not a palindrome 
     #         return False
