@@ -22,19 +22,31 @@ def is_palindrome_iterative(text):
     # pass
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
-    left_index = 0 
-    right_index = len(text) - 1
-    text = text.lower()
 
-    if text == "":
+    # in-class walk through 
+    # left_index = 0 
+    # right_index = len(text) - 1
+    # text = text.lower()
+
+    # if text == "":
+    #     return True
+    
+
+    # while left_index < right_index:
+    #     if text[left_index] != text[right_index]: # not a palindrome 
+    #         return False
+    #     left_index += 1
+    #     right_index -= 1
+    # return True
+
+    string = get_text(text)
+    word = "" 
+
+    for letter in reversed(string):
+        word += letter
+    if word == string:  
         return True
-
-    while left_index < right_index:
-        if text[left_index] != text[right_index]: # not a palindrome 
-            return False
-        left_index += 1
-        right_index -= 1
-    return True
+    return False
 
 
 def is_palindrome_recursive(text, left=None, right=None):
@@ -50,15 +62,24 @@ def is_palindrome_recursive(text, left=None, right=None):
     if left == right or left > right:
         return True
 
-    if left is None:
+    if left is None and right is None:
         left = 0
         right = len(text) - 1
 
-    if text[left] != text[right]: # mismatch 
+    if text[left].lower() != text[right].lower(): # mismatch 
         return False 
     else: 
         # recursive case 
         return is_palindrome_recursive(text, left+1, right-1)
+
+
+# helper function to handle white space, punctuation, and casing in text 
+def get_text(text):
+    lower_case = text.lower()
+    no_white_space = lower_case.replace(" ", "")
+    no_punctuation = no_white_space.translate(str.maketrans('', '', string.punctuation))
+    return no_punctuation
+
 
 def main():
     import sys
