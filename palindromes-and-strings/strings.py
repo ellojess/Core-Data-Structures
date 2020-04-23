@@ -52,8 +52,10 @@ def find_all_indexes(text, pattern):
     indexes = [] 
     i = find_index(text, pattern)
 
-    # base cases, check if pattern is empty 
-    if pattern == '':
+    # base cases, check if pattern is empty & edge case with empty string
+    if pattern == "":
+        for i in range(len(text)):
+            indexes.append(i)
         return indexes
 
     if pattern == text:
@@ -72,7 +74,23 @@ def find_all_indexes(text, pattern):
             break   
     return indexes
 
-    
+    # Jess' walk through 
+    # all_indexes = []
+
+    # if pattern == "":
+    #     for i in range(len(text)):
+    #         all_indexes.append(i)
+    #     return all_indexes
+
+    # for text_index in range(len(text)):
+    #     text_letter = text[text_index]
+    #     #check if letter is start of pattern 
+    #     if text_letter == pattern[0]:
+    #         for pattern_index in range(len(pattern)): 
+    #             if pattern[pattern_index] != text[text_index + pattern_index]:
+    #                 break
+    #             if pattern_index == len(pattern) - 1:
+    #                 all_indexes.append(text_index)
 
 
 
