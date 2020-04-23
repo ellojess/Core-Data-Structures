@@ -101,7 +101,7 @@ class LinkedList(object):
         new_node = Node(item)
         current_node = self.head
         
-        # Append item if index is equal to the length of linked list substracts 1
+        # if index is equal to the length of linked list, add item 
         if index == self.size:
             self.append(item)
         # Prepend item if index is 0
@@ -109,7 +109,7 @@ class LinkedList(object):
             self.prepend(item)
         else:
             i = 0
-            # for i in range(self.size):
+            
             while i < self.size:
                 if i == index - 1:
                     new_node.next = current_node.next
