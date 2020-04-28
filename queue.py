@@ -30,7 +30,11 @@ class LinkedQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        
+        Running time is O(1) because linked lists' tail reference
+
+        """
         # TODO: Insert given item
         self.list.append(item)
 
@@ -46,7 +50,11 @@ class LinkedQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        
+        Running time is O(1) because there is a reference to the head of the linked list
+        
+        """
         # TODO: Remove and return front item, if any
         if self.list.is_empty():
             raise ValueError("error: queue is empty")
@@ -86,7 +94,12 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        
+        All the items in the array needs to shift to make room
+        for another item to be appended to the front/beginning
+
+        """
         # TODO: Insert given item
         self.list.append(item)
 
