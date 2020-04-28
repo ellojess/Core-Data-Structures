@@ -55,6 +55,7 @@ class HashTable(object):
         Best and worst case running time: ??? under what conditions? [TODO]"""
         # Collect all pairs of key-value entries in each of the buckets
         all_items = []
+
         for bucket in self.buckets:
             all_items.extend(bucket.items())
         return all_items
@@ -112,8 +113,10 @@ class HashTable(object):
             # In this case, the given key's value is being updated
             # Remove the old key-value entry from the bucket first
             bucket.delete(entry)
+            self.size -= 1 # testing
         # Insert the new key-value entry into the bucket in either case
         bucket.append((key, value))
+        self.size += 1 # testing 
         # TODO: Check if the load factor exceeds a threshold such as 0.75
         # ...
         if self.load_factor() > 0.75:
@@ -132,6 +135,7 @@ class HashTable(object):
         if entry is not None:  # Found
             # Remove the key-value entry from the bucket
             bucket.delete(entry)
+            self.size -= 1 # testing
         else:  # Not found
             raise KeyError('Key not found: {}'.format(key))
 
@@ -140,7 +144,15 @@ class HashTable(object):
         Should be called automatically when load factor exceeds a threshold
         such as 0.75 after an insertion (when set is called with a new key).
         Best and worst case running time: ??? under what conditions? [TODO]
-        Best and worst case space usage: ??? what uses this memory? [TODO]"""
+        Best and worst case space usage: ??? what uses this memory? [TODO]
+        
+        Best case running time: 
+        Worst case running time: 
+
+        Best case space usage:
+        Worst case space usage: 
+        
+        """
         # If unspecified, choose new size dynamically based on current size
         if new_size is None:
             new_size = len(self.buckets) * 2  # Double size
