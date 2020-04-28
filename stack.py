@@ -30,7 +30,12 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        
+        Running time is O(1) because the item is added to the first index
+        and nothing else is needed to be done other than the single operation 
+        
+        """
         # TODO: Push given item
         self.list.prepend(item)
 
@@ -46,7 +51,12 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        
+        Running time is O(1) because the item is removed from the first index
+        and nothing else is needed to be done other than the single operation 
+        
+        """
         # TODO: Remove and return top item, if any
         if self.list.is_empty():
             raise ValueError("Empty stack")
@@ -88,7 +98,12 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        
+        Running time is O(1) because the item is added to the first index
+        and nothing else is needed to be done other than the single operation
+
+        """
         # TODO: Insert given item
         self.list.append(item)
 
@@ -104,7 +119,12 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        
+        Running time is O(1) because the item is removed from the last index of the array
+        and nothing else is needed to be done other than the single operation
+        
+        """
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Error: Stack is empty")
