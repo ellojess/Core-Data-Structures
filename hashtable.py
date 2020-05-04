@@ -199,7 +199,7 @@ class HashTable(object):
         elif new_size is 0:
             new_size = len(self.buckets) / 2  # Half size
         # TODO: Get a list to temporarily hold all current key-value entries
-        items = self.items
+        items = self.items()
         # TODO: Create a new list of new_size total empty linked list buckets
         self.size = 0
         ll_buckets = []
