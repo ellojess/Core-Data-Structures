@@ -89,8 +89,6 @@ class BinarySearchTree(object):
         """Insert the given item in order into this binary search tree.
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?
-        
-
 
         """
         # Handle the case where the tree is empty
@@ -205,6 +203,8 @@ class BinarySearchTree(object):
         # Check if starting node exists
         if node is None:
             # Not found (base case)
+            if parent:
+                return parent
             return None
         # TODO: Check if the given item matches the node's data
         if item == node.data:
@@ -217,28 +217,28 @@ class BinarySearchTree(object):
         # TODO: Check if the given item is greater than the node's data
         elif item > node.data:
             # TODO: Recursively descend to the node's right child, if it exists
-            return self._find_node_recursive(item, node.right, node)  # Hint: Remember to update the parent parameter
+            return self._find_parent_node_recursive(item, node.right, node)  # Hint: Remember to update the parent parameter
 
-    def delete(self, item):
-        """Remove given item from this tree, if present, or raise ValueError.
-        TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
-        # TODO: Use helper methods and break this algorithm down into 3 cases
-        # based on how many children the node containing the given item has and
-        # implement new helper methods for subtasks of the more complex cases
+    # def delete(self, item):
+    #     """Remove given item from this tree, if present, or raise ValueError.
+    #     TODO: Best case running time: ??? under what conditions?
+    #     TODO: Worst case running time: ??? under what conditions?"""
+    #     # TODO: Use helper methods and break this algorithm down into 3 cases
+    #     # based on how many children the node containing the given item has and
+    #     # implement new helper methods for subtasks of the more complex cases
         
-        if node is None:
-            raise ValueError("Item was not found")
+    #     if node is None:
+    #         raise ValueError("Item was not found")
 
-        if node.is_leaf: #leaf
-            if root: 
-                self.root = None
-                return 
-        elif ??: #one child
-            pass
-        else: #two child 
-            pass 
-            #get inorder succesor helper 
+    #     if node.is_leaf: #leaf
+    #         if root: 
+    #             self.root = None
+    #             return 
+    #     elif ??: #one child
+    #         pass
+    #     else: #two child 
+    #         pass 
+    #         #get inorder succesor helper 
 
     def items_in_order(self):
         """Return an in-order list of all items in this binary search tree."""
