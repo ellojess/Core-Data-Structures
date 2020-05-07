@@ -1,5 +1,5 @@
 #!python
-
+from queue import *
 
 class BinaryTreeNode(object):
 
@@ -30,7 +30,9 @@ class BinaryTreeNode(object):
         # TODO: Check if left child has a value and if so calculate its height
         # TODO: Check if right child has a value and if so calculate its height
         # Return one more than the greater of the left height and right height
-
+        left_height = 0 
+        right_height = 0 
+        
         if self.left is not None:
             left_height = self.left.height() + 1
         
@@ -254,12 +256,13 @@ class BinarySearchTree(object):
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
-        # TODO: Traverse left subtree, if it exists
-        self._traverse_in_order_recursive(node.left, visit)
-        # TODO: Visit this node's data with given function
-        visit(node.data)
-        # TODO: Traverse right subtree, if it exists
-        self._traverse_in_order_recursive(node.right, visit)
+        if node is not None: 
+            # TODO: Traverse left subtree, if it exists
+            self._traverse_in_order_recursive(node.left, visit)
+            # TODO: Visit this node's data with given function
+            visit(node.data)
+            # TODO: Traverse right subtree, if it exists
+            self._traverse_in_order_recursive(node.right, visit)
 
     def _traverse_in_order_iterative(self, node, visit):
         """Traverse this binary tree with iterative in-order traversal (DFS).
