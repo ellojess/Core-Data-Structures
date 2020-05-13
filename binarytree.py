@@ -64,14 +64,15 @@ class BinarySearchTree(object):
     def height(self):
         """Return the height of this tree (the number of edges on the longest
         downward path from this tree's root node to a descendant leaf node).
-        TODO: Best and worst case running time: ??? under what conditions?"""
+        TODO: Best and worst case running time: ??? under what conditions? O(logn) or O(n) 
+        """
         # TODO: Check if root node has a value and if so calculate its height
         return self.root.height()
 
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
-        TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        TODO: Best case running time: ??? under what conditions? O(log(n)) if tree is balanced
+        TODO: Worst case running time: ??? under what conditions? O(n) unbalanced"""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # Return True if a node was found, or False
@@ -81,7 +82,10 @@ class BinarySearchTree(object):
         """Return an item in this binary search tree matching the given item,
         or None if the given item is not found.
         TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        TODO: Worst case running time: ??? under what conditions?
+        O(log(n)) if tree is balanced
+        O(n) unbalanced
+        """
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # TODO: Return the node's data if found, or None
@@ -91,7 +95,8 @@ class BinarySearchTree(object):
         """Insert the given item in order into this binary search tree.
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?
-
+        O(log(n)) if tree is balanced
+        O(n) unbalanced
         """
         # Handle the case where the tree is empty
         if self.is_empty():
